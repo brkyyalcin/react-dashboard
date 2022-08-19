@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import './sass/_main.scss';
+import AdminLayout from './layouts/AdminLayout'
+import { useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Helmet from 'react-helmet'
 
 function App() {
+  const { dark } = useSelector((state) => state.site)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={dark ? 'dark' : 'light'}>
+      <Helmet>
+        <title>Admin Paneli</title>
+      </Helmet>
+      <AdminLayout />
+      <ToastContainer />
     </div>
   );
 }

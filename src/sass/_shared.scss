@@ -1,0 +1,23 @@
+.wrapper{
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    background-color: bisque;
+    .sidebar{
+        width: 260px;
+        z-index: 10;
+        background: var(--ct-bg-leftbar-gradient);
+        bottom: 0;
+        position: fixed;
+        top: 0;
+        padding-top: 70px;
+        -webkit-box-shadow: var(--ct-box-shadow);
+        box-shadow: var(--ct-box-shadow);
+    }
+    .content-page{
+        margin-left: 260px;
+        overflow: hidden;
+        padding: 70px 12px 65px;
+        min-height: 100vh;
+    }
+}
