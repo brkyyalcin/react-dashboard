@@ -9,9 +9,17 @@ import * as BiIcons from 'react-icons/bi'
 import * as TbIcons from 'react-icons/tb'
 import * as BsIcons from 'react-icons/bs'
 
-export const SidebarData = [{
-    id: 1,
-    title: 'Ana Sayfa',
-    path: '/',
-    icon: <TbIcons.TbLayoutGrid />,
-  },]
+export const SidebarData = [
+    {
+        id: 1,
+        title: 'Ana Sayfa',
+        path: '/',
+        icon: <TbIcons.TbLayoutGrid />,
+    },
+    {
+        id: 2,
+        title: 'Hakkımda',
+        path: '/hakkimda',
+        icon: <FaIcons.FaUserAlt />,
+    }
+]
