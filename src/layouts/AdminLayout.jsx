@@ -1,26 +1,24 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom'
+import Header from '../components/Header/Header'
 import Sidebar from '../components/Sidebar/Sidebar'
 
 const AdminLayout = () => {
   return (
-    <div role="navigation" className='wrapper'>
-      <BrowserRouter>
-        <Sidebar />
-        <div className="content-page">
+    <>
+      <Header />
+      <Sidebar />
+      <section className="content-page">
+        <div className='container-fluid'>
           <h2 className="page_title" id="page-title">
             Başlık
           </h2>
           <div className="home_content_inner">
-            <Routes>
-              <Route path="/" element={<h1>Anasayfa</h1>}></Route>
-              <Route path="/hakkimda" element={<h1>Hakkımda</h1>}></Route>
-
-            </Routes>
+            <Outlet />
           </div>
         </div>
-      </BrowserRouter>
-    </div>
+      </section>
+    </>
   )
 }
 

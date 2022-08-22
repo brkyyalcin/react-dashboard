@@ -6,26 +6,65 @@ import * as RiIcons from 'react-icons/ri'
 import * as FiIcons from 'react-icons/fi'
 import * as BiIcons from 'react-icons/bi'
 import * as TbIcons from 'react-icons/tb'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const SidebarItem = ({ icon, title, path, subNavList }) => {
     const [subnav, setSubnav] = useState(false)
-    console.log(subNavList)
-
     const showSubnav = () => {
-        console.log(subNavList)
         setSubnav(!subnav)
     }
-    return (
+    const showClass = subnav ? "collapse show" : "collapse";
 
+
+
+    return (
         <li className="nav-item">
-            <Link
-                className="nav-link text-white"
-                to={path}
-                onClick={subNavList && showSubnav}>
+            {subNavList == undefined ? (
+                <NavLink
+                className={({ isActive }) => isActive ? " nav-link active":"nav-link" }
+                    to={path} end>
                     {icon}
-                {title}
-            </Link>
+                    <span className='nav-title'>{title}</span>
+
+                </NavLink>
+            ) : (
+                <>
+                    <a
+                        className="nav-link collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#home-collapse"
+                        aria-expanded="false "
+                        onClick={subNavList && showSubnav}>
+                        {icon}
+                        <span className='nav-title'>{title}</span>
+                        {subnav ?
+                            <IoIcons.IoIosArrowUp className='nav-drop' />
+                            :
+                            <IoIcons.IoIosArrowDown className='nav-drop' />
+                        }
+                    </a>
+                    <div className={showClass} >
+                        <ul>
+                            {subNavList.map((item) => {
+                                  
+                                return (
+                                    <li key={item.id}>
+                                        <NavLink  className={({ isActive }) => isActive ? " nav-link active":"nav-link" }
+
+                                            to={item.path} end>
+                                            {item.icon}
+                                            <span className='nav-title'>{item.title}</span>
+                                        </NavLink>
+                                    </li>
+                                )
+                            })
+                            }
+                        </ul>
+                    </div>
+
+                </>
+            )}
+
         </li>
 
     )
