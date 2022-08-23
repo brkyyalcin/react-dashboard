@@ -2,4 +2,12 @@
     height: 100%;
     overflow: hidden;
     width: 100%;
+    &.close{
+        .header,.content-page{
+            margin: 0px;
+        }
+        .sidebar{
+            left: -500%;
+        }
+    }
 }

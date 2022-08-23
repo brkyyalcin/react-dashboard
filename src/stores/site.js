@@ -4,7 +4,8 @@ export const site = createSlice({
     name: 'site',
     initialState: {
         dark: false,
-        language: 'tr'
+        language: 'tr',
+        toogleBtn:false
     },
     reducers: {
         setDarkMode: state => {
@@ -13,9 +14,12 @@ export const site = createSlice({
         setLanguage: (state, action) => {
             state.language = action.payload
         },
+        setToogleBtn: (state,action) => {
+            state.toogleBtn = !state.toogleBtn
+        }
     }
 })
 
-export const { setDarkMode, setLanguage } = site.actions
+export const { setDarkMode, setLanguage, setToogleBtn } = site.actions
 
 export default site.reducer

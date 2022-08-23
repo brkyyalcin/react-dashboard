@@ -3,5 +3,8 @@ header{
         margin-left: 260px;
         border-left: 1px solid $gray-300;
         padding: 25px;
+        .navbar-toggler{
+            height: 20px;
+        }
     }
 }
