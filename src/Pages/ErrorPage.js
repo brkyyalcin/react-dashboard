@@ -2,10 +2,13 @@ import React from 'react'
 import { ImSad } from 'react-icons/im'
 import { IoIosArrowBack } from 'react-icons/io'
 import { Link } from 'react-router-dom'
-
+import { Helmet } from 'react-helmet-async';
 const ErrorPage = (props) => {
   return (
     <div className='error-page'>
+      <Helmet>
+        <title>Admin Paneli-  Error Page code: {props.Code}</title>
+      </Helmet>
       <div className='container text-center'>
         <div className='col-8 offset-2'>
           <ImSad className='errorIcon' />
@@ -18,7 +21,7 @@ const ErrorPage = (props) => {
         </div>
         <div className='col-8 offset-2  mt-5'>
           <p>{props.ErrorDesc}</p>
-          <Link className='btn btn-primary p-3' to="/" ><IoIosArrowBack className='ml-2'/><span>Go to Home</span></Link>
+          <Link className='btn btn-primary p-3' to="/" ><IoIosArrowBack className='ml-2' /><span>Go to Home</span></Link>
         </div>
       </div>
     </div>

@@ -5,7 +5,9 @@ export const site = createSlice({
     initialState: {
         dark: false,
         language: 'tr',
-        toogleBtn:false
+        toogleBtn:false,
+        isWhoDropText:'',
+        isWhoDrop:false
     },
     reducers: {
         setDarkMode: state => {
@@ -14,12 +16,18 @@ export const site = createSlice({
         setLanguage: (state, action) => {
             state.language = action.payload
         },
-        setToogleBtn: (state,action) => {
+        setToogleBtn: state=> {
             state.toogleBtn = !state.toogleBtn
+        },
+        setIsWhoDropText: (state, action) => {
+            state.isWhoDropText = action.payload
+        },
+        setIsWhoDrop: (state, action)=> {
+            state.isWhoDrop = action.payload
         }
     }
 })
 
-export const { setDarkMode, setLanguage, setToogleBtn } = site.actions
+export const { setDarkMode, setLanguage, setToogleBtn,setIsWhoDropText,setIsWhoDrop } = site.actions
 
 export default site.reducer

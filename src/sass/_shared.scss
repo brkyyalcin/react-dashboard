@@ -1,13 +1,29 @@
-.wrapper{
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-    &.close{
-        .header,.content-page{
-            margin: 0px;
+Body{
+    font-family: 'Poppins', sans-serif;
+    .wrapper{
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+        &.close{
+            
+            .header,.content-page{
+                margin: 0px;
+                transition: all 0.25s;
+            }
+            .sidebar{
+                left: -500%;
+                transition: all 0.25s;
+            }
         }
-        .sidebar{
-            left: -500%;
-        }
+    }
+    
+    .btn-icon {
+        padding: 0;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 100%;
+        flex-shrink: 0;
+        height: calc((0.875rem * 1) + (0.875rem * 2) + (2px)) !important;
+        width: calc((0.875rem * 1) + (0.875rem * 2) + (2px)) !important;
     }
 }

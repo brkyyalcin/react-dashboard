@@ -2,20 +2,23 @@ import React from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { RiMenu5Fill } from 'react-icons/ri'
 import { useSelector,useDispatch } from 'react-redux'
+import { setToogleBtn } from '../../stores/site'
+import HeaderNotification from './HeaderNotification'
+import HeaderSettingMenu from './HeaderSettingMenu'
 const Header = () => {
 
-
+  const dispatch = useDispatch();
 
   return (
     <header className='shadow'>
       <div className='header d-flex justify-content-between'>
         <div className=' row'>
           <div className='col-2  d-flex align-items-center'>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation"  >
+            <button className="navbar-toggler" onClick={() => dispatch(setToogleBtn()) } >
               <RiMenu5Fill />
             </button>
           </div>
-          <div className='col-10  '>
+          <div className='col-10 d-none d-lg-block'>
             <div className="input-group ">
               <input type="text" className="form-control" placeholder=" Search" aria-label="Search" aria-describedby="Search"/>
                 <div className="input-group-append">
@@ -25,8 +28,9 @@ const Header = () => {
           </div>
         </div>
 
-        <div className=''>
-          burası bildirimler menü vb
+        <div className='d-flex justify-content-between'>
+          <HeaderNotification />
+          <HeaderSettingMenu />
         </div>
       </div>
     </header >

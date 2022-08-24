@@ -18,10 +18,11 @@ const SidebarItem = ({ icon, title, path, subNavList }) => {
 
 
     return (
-        <li className="nav-item">
+
+        <>
             {subNavList == undefined ? (
                 <NavLink
-                className={({ isActive }) => isActive ? " nav-link active":"nav-link" }
+                    className={({ isActive }) => isActive ? " nav-link active" : "nav-link"}
                     to={path} end>
                     {icon}
                     <span className='nav-title'>{title}</span>
@@ -44,29 +45,26 @@ const SidebarItem = ({ icon, title, path, subNavList }) => {
                         }
                     </a>
                     <div className={showClass} >
-                        <ul>
+                        <div className="nav-menu-nested">
                             {subNavList.map((item) => {
-                                  
-                                return (
-                                    <li key={item.id}>
-                                        <NavLink  className={({ isActive }) => isActive ? " nav-link active":"nav-link" }
 
-                                            to={item.path} end>
-                                            {item.icon}
-                                            <span className='nav-title'>{item.title}</span>
-                                        </NavLink>
-                                    </li>
+                                return (
+                                    <NavLink key={item.id} className={({ isActive }) => isActive ? " nav-link active" : "nav-link"}
+
+                                        to={item.path} end>
+                                        {item.icon}
+                                        <span className='nav-title'>{item.title}</span>
+                                    </NavLink>
                                 )
                             })
                             }
-                        </ul>
+                        </div>
                     </div>
 
                 </>
             )}
 
-        </li>
-
+        </>
     )
 }
 

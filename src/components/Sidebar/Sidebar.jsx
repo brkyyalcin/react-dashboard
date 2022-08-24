@@ -4,22 +4,20 @@ import { SidebarData } from './LinkData';
 
 
 const Sidebar = () => {
-  useEffect(() => {
-
-  })
-
-
   return (
     <nav className='sidebar'>
       <div className='logo'>
         <a href="/" className="text-white text-decoration-none">
-          <img src='https://seeklogo.com/images/C/corporate-company-logo-749CEE6ADC-seeklogo.com.png' alt='logo' />
+          <img src={process.env.PUBLIC_URL+"/img/tursysLogo.png" } alt='logo' />
+          <span>ISSUE</span>
         </a>
       </div>
-
       <hr />
-      <ul className="nav">
-        {SidebarData.map((item) => {
+      <div className='nav'>
+        <div className='nav-menu-heading '>
+
+        </div>
+      {SidebarData.map((item) => {
           return (
             <SidebarItem
               subNavList={item.subNav}
@@ -30,8 +28,8 @@ const Sidebar = () => {
             />
           )
         })}
-
-      </ul>
+      </div>
+      <hr />
 
     </nav>
   )
